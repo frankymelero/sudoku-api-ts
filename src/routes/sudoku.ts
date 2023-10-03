@@ -6,9 +6,9 @@ const router = Router();
 
 router.get('/get-all',getAllSudokus);
 router.get('/:id', getSudoku);
-router.post('/add', logMiddleware, addSudoku);
-router.put('/:id', logMiddleware, updateSudoku);
-router.delete('/:id', logMiddleware, deleteSudoku);
+router.post('/add', addSudoku);
+router.put('/:id', updateSudoku);
+router.delete('/:id', deleteSudoku);
 
 export { router };
 
