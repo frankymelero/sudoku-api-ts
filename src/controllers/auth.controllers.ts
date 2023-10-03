@@ -1,9 +1,16 @@
 import { Request, Response } from "express"
 import { loginUser, registerNewUser } from "../services/auth.service"
+import { handleHttp } from "../utils/error.handle"
 
 const registerController = async ({body}: Request, res: Response) => {
-const responseUser = await registerNewUser(body)
-res.send(responseUser);
+
+    try {
+        const responseUser = await registerNewUser(body)
+        res.send(responseUser);
+    } catch (error) {
+      handleHttp(res, 'ERROR_GET_ALL_SUDOKUS');
+    }
+
 }
 
 const loginController = async ({body}: Request, res: Response) => {
