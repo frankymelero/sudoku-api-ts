@@ -5,9 +5,8 @@ import { insertSudoku, getSudokus, getOneById, updateSudokuById, deleteSudokuByI
 const getSudoku = async ({ params }: Request, res: Response) => {
     try {
         const { id } = params;
-            const response = await getOneById(id);
+        const response = await getOneById(id);
         const data = response ? response : "NOT_FOUND";
-     
         res.send(data);
     } catch (error) {
       handleHttp(res, 'ERROR_GET_SUDOKU');
@@ -48,7 +47,6 @@ const getSudokusByDifficulty = async ({ params }: Request, res: Response) => {
 const getRandomSudokusByDifficulty = async ({ params }: Request, res: Response) => {
   try {
       const { difficulty } = params;
-   
       const response = await getRandomByDifficulty(difficulty);
       const data = response ? response : "NOT_FOUND";
       res.send(data);

@@ -9,7 +9,6 @@ router.get('/get-random', getRandomSudoku);
 router.get('/get-by-difficulty/:difficulty', getSudokusByDifficulty);
 router.get('/get-random-by-difficulty/:difficulty', getRandomSudokusByDifficulty);
 router.get('/get-one/:id', getSudoku);
-
 router.post('/add', checkJwt, addSudoku);
 router.put('/:id', checkJwt, updateSudoku);
 router.delete('/:id', checkJwt, deleteSudoku);
