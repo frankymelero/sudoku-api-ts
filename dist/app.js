@@ -12,12 +12,6 @@ const PORT = process.env.PORT || 3001;
 const app = (0, express_1.default)();
 app.use((0, cors_1.default)());
 app.use(express_1.default.json());
-app.get('/', (req, res) => {
-    res.send("Bienvenido a la API. Mensaje por escribir.");
-});
-app.get('/ping', (req, res) => {
-    res.send("Pong.");
-});
 app.use(routes_1.router);
 (0, mongo_1.default)().then(() => {
     console.log("Connected to the DB");
