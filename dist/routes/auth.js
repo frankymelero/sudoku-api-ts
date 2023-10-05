@@ -9,3 +9,4 @@ exports.router = router;
 router.post("/register", registerController);
 */
 router.post("/login", auth_controllers_1.loginController);
+//# sourceMappingURL=auth.js.map

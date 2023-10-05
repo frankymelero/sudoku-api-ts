@@ -21,3 +21,4 @@ const checkJwt = (req, res, next) => {
     }
 };
 exports.checkJwt = checkJwt;
+//# sourceMappingURL=session.js.map

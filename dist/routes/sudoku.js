@@ -14,3 +14,4 @@ router.get('/get-one/:id', sudoku_controller_1.getSudoku);
 router.post('/add', session_1.checkJwt, sudoku_controller_1.addSudoku);
 router.put('/:id', session_1.checkJwt, sudoku_controller_1.updateSudoku);
 router.delete('/:id', session_1.checkJwt, sudoku_controller_1.deleteSudoku);
+//# sourceMappingURL=sudoku.js.map

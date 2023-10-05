@@ -101,3 +101,4 @@ const deleteSudoku = ({ params }, res) => __awaiter(void 0, void 0, void 0, func
     }
 });
 exports.deleteSudoku = deleteSudoku;
+//# sourceMappingURL=sudoku.controller.js.map

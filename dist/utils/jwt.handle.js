@@ -20,3 +20,4 @@ const verifyToken = (jwt) => {
     return isOk;
 };
 exports.verifyToken = verifyToken;
+//# sourceMappingURL=jwt.handle.js.map

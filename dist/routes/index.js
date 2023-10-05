@@ -43,3 +43,4 @@ const cleanFileName = (fileName) => {
         }
     }
 });
+//# sourceMappingURL=index.js.map

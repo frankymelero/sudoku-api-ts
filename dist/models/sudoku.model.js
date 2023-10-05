@@ -21,3 +21,4 @@ const sudokuSchema = new mongoose_1.Schema({
 });
 const sudokuModel = (0, mongoose_1.model)('api-rest-sudoku', sudokuSchema);
 exports.default = sudokuModel;
+//# sourceMappingURL=sudoku.model.js.map

@@ -10,10 +10,14 @@ app.use(cors());
 app.use(express.json());
 
 
-app.use(router);
+
 app.get('/', (req, res) => {
     res.send("Bienvenido a la API. Mensaje por escribir.");
     });
+    app.get('/ping', (req, res) => {
+        res.send("Pong.");
+        });
+        app.use(router);
 
 dbConnect().then(()=>{
     console.log("Connected to the DB");
