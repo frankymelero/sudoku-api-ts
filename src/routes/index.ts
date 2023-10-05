@@ -1,22 +1,14 @@
-import { Router } from "express";
-import { readdirSync } from "fs";
 
-const PATH_ROUTER = `${__dirname}`;
+import { Router } from "express";
+import { router as authRouter } from "./auth";
+import { router as sudokuRouter } from "./sudoku";
 
 const router = Router();
 
-const cleanFileName = (fileName:string) => {
-const file = fileName.split('.').shift();
-return file;
-};
+// Rutas para la autenticación
+router.use("/api/v1/auth", authRouter);
 
-readdirSync(PATH_ROUTER).filter((fileName) => {{
-    const cleanName = cleanFileName(fileName);
-    if(cleanName  !== "index"){
-        import(`./${cleanName}`).then((moduleRouter) =>{
-            router.use(`/api/v1/${cleanName}`, moduleRouter.router)
-        })
-    }
-}});
+// Rutas para sudoku
+router.use("/api/v1/sudoku", sudokuRouter);
 
 export { router };
