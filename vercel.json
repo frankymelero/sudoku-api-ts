@@ -3,18 +3,14 @@
     "name": "socketing",
     "builds": [
       {
-        "src": "dist/app.js", 
+        "src": "vercel-build.js",
         "use": "@vercel/node"
       }
     ],
     "routes": [
       {
         "src": "/(.*)",
-        "dest": "dist/app.js" 
-      },
-      {
-        "src": "/(.*)",
-        "dest": "dist/app.js" 
+        "dest": "vercel-build.js"
       }
     ]
   }
