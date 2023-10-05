@@ -1,17 +1,15 @@
 {
     "version": 2,
-    "name": "socketing",
+    "name": "mi-app",
     "builds": [
       {
-        "src": "dist/app.js",  
+        "src": "dist/app.js",
         "use": "@vercel/node"
       }
     ],
     "routes": [
-        {
-          "src": "/(.*)",  
-          "dest": "/dist/app.js"  
-        }
-      ]
-    }
-  
+      { "src": "/api/v1/sudoku/get-all", "dest": "dist/app.js" },
+      { "src": "/api/v1/sudoku/get-random", "dest": "dist/app.js" },
+      { "src": "/(.*)", "dest": "dist/app.js" }
+    ]
+  }
