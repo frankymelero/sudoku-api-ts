@@ -1,12 +1,13 @@
 import { Request, Response, response } from "express"
 import { handleHttp } from "../utils/error.handle"
-import { insertSudoku, getSudokus, getOneById, updateSudokuById, deleteSudokuById } from "../services/sudoku.service";
+import { insertSudoku, getSudokus, getOneById, updateSudokuById, deleteSudokuById, getRandom, getSudokusDifficulty, getRandomByDifficulty } from "../services/sudoku.service";
 
 const getSudoku = async ({ params }: Request, res: Response) => {
     try {
         const { id } = params;
-        const response = await getOneById(id);
+            const response = await getOneById(id);
         const data = response ? response : "NOT_FOUND";
+     
         res.send(data);
     } catch (error) {
       handleHttp(res, 'ERROR_GET_SUDOKU');
@@ -21,6 +22,42 @@ const getAllSudokus = async (req: Request, res: Response) => {
       handleHttp(res, 'ERROR_GET_ALL_SUDOKUS');
     }
 }
+
+const getRandomSudoku = async (req: Request, res: Response) => {
+  try {
+      const responseG = await getRandom();
+      res.send(responseG);
+  } catch (error) {
+    handleHttp(res, 'ERROR_GETTING_RANDOM_SUDOKU');
+  }
+}
+
+const getSudokusByDifficulty = async ({ params }: Request, res: Response) => {
+  try {
+      const { difficulty } = params;
+      console.log("hola")
+      const response = await getSudokusDifficulty(difficulty);
+      const data = response ? response : "NOT_FOUND";
+      res.send(data);
+  } catch (error) {
+    handleHttp(res, 'ERROR_GET_SUDOKU_BY_DIFFICULTY');
+  }
+
+}
+
+const getRandomSudokusByDifficulty = async ({ params }: Request, res: Response) => {
+  try {
+      const { difficulty } = params;
+   
+      const response = await getRandomByDifficulty(difficulty);
+      const data = response ? response : "NOT_FOUND";
+      res.send(data);
+  } catch (error) {
+    handleHttp(res, 'ERROR_GET_RANDOM_SUDOKU_BY_DIFFICULTY');
+  }
+
+}
+
 const updateSudoku = async ({params, body}: Request, res: Response) => {
     try {
         const { id } = params;
@@ -52,4 +89,4 @@ const deleteSudoku = async ({params}: Request, res: Response) => {
     }
 }
 
-export { getSudoku, getAllSudokus, updateSudoku, addSudoku, deleteSudoku }
+export { getSudoku, getAllSudokus, updateSudoku, addSudoku, deleteSudoku, getRandomSudoku, getSudokusByDifficulty, getRandomSudokusByDifficulty}
