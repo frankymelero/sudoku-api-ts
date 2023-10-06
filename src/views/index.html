@@ -54,13 +54,11 @@
         <th>Method</th>
         <th>Description</th>
         <th>Params</th>
-        <th>Protected</th>
     </tr>
     <tr>
         <td>/</td>
         <td>GET</td>
         <td>Main API page</td>
-        <td>NO</td>
         <td>NO</td>
     </tr>
     <tr>
@@ -68,7 +66,7 @@
         <td>GET</td>
         <td>Retrieves all Sudokus in the DB</td>
         <td>NO</td>
-        <td>NO</td>
+       
     </tr>
 
     <tr>
@@ -76,33 +74,30 @@
         <td>GET</td>
         <td>Retrieves all Sudokus with the received difficulty</td>
         <td>YES</td>
-        <td>NO</td>
     </tr>
     <tr>
         <td>/api/v1/sudoku/get-one/:id</td>
         <td>GET</td>
         <td>Retrieves a sudoku with the received id</td>
         <td>YES</td>
-        <td>NO</td>
     </tr>
     <tr>
         <td><a href="/api/v1/sudoku/get-random/">/api/v1/sudoku/get-random/</a></td>
         <td>GET</td>
         <td>Retrieves a random Sudoku with random difficulty</td>
         <td>NO</td>
-        <td>NO</td>
     </tr>
     <tr>
         <td><a href="/api/v1/sudoku/get-random-by-difficulty/easy">/api/v1/sudoku/get-random-by-difficulty/:difficulty</a></td>
         <td>GET</td>
-        <td>Retrieves a random sudoku with selected difficulty</td>
+        <td>Retrieves a random sudoku with received difficulty</td>
         <td>YES</td>
-        <td>NO</td>
     </tr>
     </table>
     <h2>Additional information</h2>
-    <p>POST, PUT, DELETE methods limited to admin user.</p>
-    <h2>Expected output template:</h2>
+    <p>· 5 new sudokus are added daily via Cron Job. </p>
+    <p>· /get-all endpoint will be deactivated upon 300 registers. Once We reach the limit, the data received will be paginated and the endpoint will be modificated to select the page and number of results.</p>
+    <h2>Data format:</h2>
     <pre>
     <p>{</p>
     <p>"_id": "generated id",</p>
